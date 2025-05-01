@@ -5,7 +5,7 @@ A aplicação realiza operações de **Create, Read, Update e Delete** com uma e
 
 ---
 
-🧠 Objetivo
+## 🧠 Objetivo
 - Criar um projeto Maven no IntelliJ IDEA
 - Configurar JPA com Hibernate como provedor de persistência
 - Conectar a aplicação a um banco de dados PostgreSQL
