@@ -1,0 +1,71 @@
+package com.auladejpamaven;
+
+import dominio.Pessoa;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        // Criar objetos
+        Pessoa p1 = new Pessoa(null, "Carlos Silva", "carlos@gmail.com");
+        Pessoa p2 = new Pessoa(null, "Arlindo Cruz", "arlindo@gmail.com");
+        Pessoa p3 = new Pessoa(null, "Isabel Silveira", "isabel@gmail.com");
+
+
+        /* para instanciar nosso EntityManagerFactory com as configurações do persistence.xml para conectar
+         com o banco de dados e depois
+         instanciar nosso EntityManager:  */
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
+        EntityManager em = emf.createEntityManager();
+
+
+
+
+
+        // Inserir no banco
+        em.getTransaction().begin();
+        em.persist(p1);
+        em.persist(p2);
+        em.persist(p3);
+        em.getTransaction().commit();
+        System.out.println("Pronto!");
+
+
+
+        // Buscar por Id
+
+        Pessoa p = em.find(Pessoa.class, 2);
+        System.out.println(p);
+
+
+
+        /* deletar do banco de dados
+         Sempre que for uma operação que não seja uma simples consulta é necessario colocar a transação "em.getTransaction().begin();",
+         primeiro achamos nosso objeto por ID, depois acionamos a transação e removemos com "em.remove(p)".
+
+         Pessoa p = em.find(Pessoa.class, 2);
+         em.getTransaction().begin();
+         em.remove(p);
+         em.getTransaction().commit();
+
+         */
+
+
+
+        // Boas praticas
+        em.close();
+        emf.close();
+
+
+
+
+
+
+    }
+}
