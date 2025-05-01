@@ -5,13 +5,13 @@ A aplicação realiza operações de **Create, Read, Update e Delete** com uma e
 
 ---
 
-## 🧠 Objetivo
-
-- Criar um projeto Maven no IntelliJ IDEA.  
-- Configurar JPA com Hibernate como provedor.  
-- Conectar o projeto ao banco PostgreSQL.  
-- Persistir, consultar e remover dados com uma entidade JPA.  
-- Estruturar e documentar o projeto para fins de aprendizagem e portfólio.
+🧠 Objetivo
+- Criar um projeto Maven no IntelliJ IDEA
+- Configurar JPA com Hibernate como provedor de persistência
+- Conectar a aplicação a um banco de dados PostgreSQL
+- Implementar um CRUD completo com a entidade Pessoa (Create, Read, Update e Delete)
+- Aplicar boas práticas com EntityManager e transações
+- Estruturar e documentar o projeto com foco em aprendizado, prática de JPA e portfólio
 
 ---
 
@@ -230,13 +230,26 @@ public class App {
 ```
 
 ### ✅ Resultado Esperado
-- Tabela pessoa criada automaticamente no banco aulajpa
-
-- Dados persistidos corretamente via JPA
- 
-- SQLs exibidos no console (hibernate.show_sql=true)
+- A tabela pessoa é criada automaticamente no banco de dados aulajpa via JPA/Hibernate
+- Dados da entidade Pessoa são inseridos, consultados, atualizados e removidos corretamente
+- Os comandos SQL gerados pelo Hibernate são exibidos no console (hibernate.show_sql=true)
+- Todas as operações CRUD são executadas com sucesso através da API JPA
 
 ### 📌 Dicas Finais
-- ✅ Verifique se o persistence.xml está dentro de src/main/resources/META-INF/
+- ✅ Certifique-se de que o arquivo persistence.xml está dentro do diretório:
+src/main/resources/META-INF/ — esse caminho é obrigatório para o JPA reconhecer as configurações.
 
-- ⚠️ O valor de persistence-unit name deve ser exatamente igual ao usado em Persistence.createEntityManagerFactory("exemplo-jpa")
+- ⚠️ O valor do atributo persistence-unit name no persistence.xml deve ser exatamente igual ao usado em Persistence.createEntityManagerFactory("exemplo-jpa").
+
+- 🔐 Confirme se o nome de usuário e a senha do banco de dados PostgreSQL estão corretos no persistence.xml.
+
+- 🛠️ Se o projeto não compilar, execute Maven → Reload Project no IntelliJ para garantir que todas as dependências foram baixadas corretamente.
+
+- 🗃️ Antes de executar, verifique se o banco de dados aulajpa foi criado no PostgreSQL com:
+
+```sql
+CREATE DATABASE aulajpa;
+```
+- ✅ Use em.close() e emf.close() sempre ao final da aplicação para liberar os recursos corretamente.
+
+
