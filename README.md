@@ -194,10 +194,16 @@ public class App {
         Pessoa p = em.find(Pessoa.class, 1);
         System.out.println(p);
 
-        // Remover
-        em.getTransaction().begin();
-        em.remove(p);
-        em.getTransaction().commit();
+        /* Remover do banco de dados:
+         Sempre que for uma operação que não seja uma simples consulta é necessario colocar a transação "em.getTransaction().begin();",
+         primeiro achamos nosso objeto por ID, depois acionamos a transação e removemos com "em.remove(p)". */
+
+         Pessoa p = em.find(Pessoa.class, 2);
+         em.getTransaction().begin();
+         em.remove(p);
+         em.getTransaction().commit();
+
+         
 
         em.close();
         emf.close();
