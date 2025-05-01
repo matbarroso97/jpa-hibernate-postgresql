@@ -39,36 +39,39 @@ public class App
 
 
         // Buscar por Id
-
-        Pessoa p = em.find(Pessoa.class, 2);
-        System.out.println(p);
+        Pessoa pBusca = em.find(Pessoa.class, 2);
+        System.out.println("Buscado: " + pBusca);
 
 
 
        /* Atualizar os dados, descomente pra testar:
 
-        Pessoa p = em.find(Pessoa.class, 1);
-        System.out.println("Antes da atualização: " + p);
+        Pessoa pUpdate = em.find(Pessoa.class, 1);
+        System.out.println("Antes da atualização: " + pUpdate);
 
-        p.setNome("Carlos Atualizado");
-        p.setEmail("carlos.atualizado@gmail.com");
+        pUpdate.setNome("Carlos Atualizado");
+        pUpdate.setEmail("carlos.atualizado@gmail.com");
 
         em.getTransaction().begin();
-        em.merge(p);
+        em.merge(pUpdate);
         em.getTransaction().commit();
 
         System.out.println("Depois da atualização: " + em.find(Pessoa.class, 1));
-
         */
 
         /* deletar do banco de dados, descomente pra testar:
          Sempre que for uma operação que não seja uma simples consulta é necessario colocar a transação "em.getTransaction().begin();",
          primeiro achamos nosso objeto por ID, depois acionamos a transação e removemos com "em.remove(p)".
 
-         Pessoa p = em.find(Pessoa.class, 2);
-         em.getTransaction().begin();
-         em.remove(p);
-         em.getTransaction().commit();
+         Pessoa pRemover = em.find(Pessoa.class, 2);
+        if (pRemover != null) {
+            em.getTransaction().begin();
+            em.remove(pRemover);
+            em.getTransaction().commit();
+            System.out.println("Removido com sucesso.");
+        } else {
+            System.out.println("Pessoa com ID 2 não encontrada.");
+        }
 
          */
 
