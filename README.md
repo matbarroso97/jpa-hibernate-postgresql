@@ -1,7 +1,7 @@
-# 💻 Projeto: Persistência com JPA + Hibernate + PostgreSQL (Maven)
+# 💻 Projeto: CRUD com JPA + Hibernate + PostgreSQL (Maven)
 
-Este projeto demonstra como configurar e utilizar **JPA (Jakarta Persistence API)** com **Hibernate** e banco de dados **PostgreSQL**, utilizando o **Maven** como gerenciador de dependências dentro do **IntelliJ IDEA**.  
-A aplicação realiza operações básicas de persistência com uma entidade chamada `Pessoa`.
+Este projeto implementa um **CRUD completo** utilizando **JPA (Jakarta Persistence API)** com **Hibernate** e banco de dados **PostgreSQL**, utilizando o **Maven** como gerenciador de dependências dentro do **IntelliJ IDEA**.  
+A aplicação realiza operações de **Create, Read, Update e Delete** com uma entidade chamada `Pessoa`.
 
 ---
 
