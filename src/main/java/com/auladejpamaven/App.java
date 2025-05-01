@@ -45,7 +45,23 @@ public class App
 
 
 
-        /* deletar do banco de dados
+       /* Atualizar os dados, descomente pra testar:
+
+        Pessoa p = em.find(Pessoa.class, 1);
+        System.out.println("Antes da atualização: " + p);
+
+        p.setNome("Carlos Atualizado");
+        p.setEmail("carlos.atualizado@gmail.com");
+
+        em.getTransaction().begin();
+        em.merge(p);
+        em.getTransaction().commit();
+
+        System.out.println("Depois da atualização: " + em.find(Pessoa.class, 1));
+
+        */
+
+        /* deletar do banco de dados, descomente pra testar:
          Sempre que for uma operação que não seja uma simples consulta é necessario colocar a transação "em.getTransaction().begin();",
          primeiro achamos nosso objeto por ID, depois acionamos a transação e removemos com "em.remove(p)".
 
